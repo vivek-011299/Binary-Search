@@ -1,0 +1,36 @@
+/*
+Given a nearly sorted array i.e. the element that should be present at index i, is present at either (i+1) or (i-1)th index.
+We have to search in that array for an element.
+*
+*
+*/
+
+
+Solution: - 
+
+***Approach :- In normal binary search, what we do is we check for arr[mid] everytime, but here we will check for arr[mid], arr[mid+1] and arr[mid-1] at the same time..
+
+
+int binarySearch(int arr[],int x,int N)
+{
+  int start=0;
+  int end=N-1;
+if (start <= end)
+{
+		int mid = (start+end) / 2;
+		if (arr[mid] == x)
+			return mid;
+      
+		if (mid+1 < N  && arr[mid+1] == x)
+			return (mid + 1);
+      
+		if (mid-1>-1 && arr[mid - 1] == x)
+			return (mid - 1);
+      
+		if (arr[mid] > x)
+			end=mid-2;
+  	else
+       start=mid+2;
+}
+  return -1;
+}
