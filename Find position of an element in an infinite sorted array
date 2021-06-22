@@ -1,0 +1,19 @@
+/*
+Find position of an element in an infinite sorted array. This question is not possible to to do it on an editor. It's just the idea that is asked.
+*
+*/
+
+
+Solution: - 
+
+int binarySearch(int arr[], int x)
+{
+    int start=0;
+    int end=1;
+    while(arr[end]<x)
+    {
+        start=end;
+        end=end*2;
+    }
+    SimpleBinarySearch(start,end,x);         //Created another file for simple binary search...
+}
