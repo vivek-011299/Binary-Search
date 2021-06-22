@@ -1,0 +1,33 @@
+/*
+Given a sorted array arr[] of size N without duplicates, and given a value x. Ceil of x is defined as the smallest element K in arr[] such that K is bigger than or equal to x.
+Find the index of K(0-based indexing).
+*
+*/
+
+
+Solution :-
+
+int findCeil(long long int arr[], int N, long long int K) {
+    
+    int start=0;
+    int end=N-1;
+    int ans=-1;
+    while(start<=end)
+    {
+        int mid=(start+end)/2;
+        if(arr[mid]==K)
+        {
+            return mid;
+        }
+        else if(arr[mid]>K)
+        {
+            ans=mid;
+            end=mid-1;
+        }
+        else 
+        {
+            start=mid+1;
+        }
+    }
+    return ans;
+}
